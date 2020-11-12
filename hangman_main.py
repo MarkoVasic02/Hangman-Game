@@ -8,9 +8,9 @@ word = words[random.randint(0, len(words))].strip('\n')
 
 allowed_errors = 7
 guesses = []
-done = False
+won = False
 
-while not done:
+while not won:
     for letter in word:
         if letter.lower() in guesses:
             print(letter, end=" ")
@@ -26,13 +26,13 @@ while not done:
         if allowed_errors == 0:
             break
 
-    done = True
+    won = True
 
     for letter in word:
         if letter.lower() not in guesses:
-            done = False
+            won = False
 
-if done:
+if won:
     print(f"\nYou found the word! It was {word}")
 else:
     print(f"\nGame Over! The word was {word}")
